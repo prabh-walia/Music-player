@@ -19,6 +19,9 @@ function App() {
   const selectSong=(song)=>{
    setSelectedSong(song)
   }
+  function setDisplaySongs(){
+
+  }
   function getSongDuration(url) {
     return new Promise((resolve, reject) => {
       const audio = new Audio(url);
@@ -64,7 +67,7 @@ function App() {
     <div className="  w-full h-screen  pl-56 fixed transition-all duration-1000 ease-in-out"    style={{
       background: background,
     }}>
-          <span className='absolute top-5 left-6 '> <img src='/logo.png'/></span>
+          <span className='absolute top-5 left-6 '> <img src='/Logo.png'/></span>
       <div className=' h-screen  pt-3 text-white px-1 flex '>
       
        <div className='w-2/3 '>  <TrackList load={loading} setDisplayedSongs={setDisplayedSongs}/> </div>

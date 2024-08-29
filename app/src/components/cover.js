@@ -32,14 +32,14 @@ export default function Cover({ isPlaying, handlePlayPause, progress, volume, ha
 
   return (
     <div className="cover-container flex flex-col w-full h-full">
-      {/* Song Info */}
+
       <div className="mb-4">
         <h2 className="text-2xl font-bold">{selectedSong?.name}</h2>
         <h3 className="mt-3 text-gray-400">{selectedSong?.artist}</h3>
       </div>
       {selectedSong && (
         <>
-          {/* Cover Image */}
+
           <div className="mt-8 w-full h-[400px] max-h-[400px] overflow-hidden mb-4 rounded-xl">
             <img
               src={`https://cms.samespace.com/assets/${selectedSong?.cover}`}
@@ -47,10 +47,9 @@ export default function Cover({ isPlaying, handlePlayPause, progress, volume, ha
               className="w-full h-full object-cover"
             />
           </div>
-          {/* Controls */}
+
           <div className="play-button-container mt-2">
-            {/* Progress Bar */}
-            <div className="w-full h-1 bg-gray-600/40 rounded-full mb-2 relative">
+          <div className="w-full h-1 bg-gray-600/40 rounded-full mb-2 relative">
               <div
                 className="bg-white h-1 rounded-full absolute top-0 left-0 transition-all ease-linear"
                 style={{ width: `${progress}%` }}

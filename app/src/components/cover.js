@@ -3,7 +3,7 @@ import { Store } from "../Context/store";
 import React from 'react';
 import { FiVolume2, FiMoreHorizontal } from "react-icons/fi";
 
-const Cover=  React.memo(({ isPlaying, handlePlayPause, progress, volume, handleVolumeChange }) => {
+const Cover=  React.memo(({ isPlaying, handlePlayPause, progress, volume, handleVolumeChange,handleProgressClick }) => {
 
   const { selectedSong, selectSong, displayedSongs, changeBg } = useContext(Store);
   const [showVolumeControl, setShowVolumeControl] = useState(false);
@@ -27,7 +27,7 @@ const Cover=  React.memo(({ isPlaying, handlePlayPause, progress, volume, handle
   };
 
   const handleVolumeSliderChange = (e) => {
-    console.log("vo",parseFloat(e.target.value))
+
     handleVolumeChange(parseFloat(e.target.value)); 
   };
 
@@ -50,12 +50,17 @@ const Cover=  React.memo(({ isPlaying, handlePlayPause, progress, volume, handle
           </div>
 
           <div className="play-button-container mt-2">
-          <div className="w-full h-1 bg-gray-600/40 rounded-full mb-2 relative">
-              <div
-                className="bg-white h-1 rounded-full absolute top-0 left-0 transition-all ease-linear"
-                style={{ width: `${progress}%` }}
-              ></div>
-            </div>
+          <div onClick={handleProgressClick} className="pt-2 pb-2 cursor-pointer">
+          <div
+      className="w-full h-1 bg-gray-600/40 rounded-full  relative "
+    
+    >
+      <div
+        className="bg-white h-1 rounded-full absolute top-0 left-0 transition-all ease-linear"
+        style={{ width: `${progress}%` }}
+      ></div>
+    </div>
+    </div>
 
             <div className="w-full flex justify-between items-center mt-8">
               <div className="p-2 rounded-full bg-slate-500/10">

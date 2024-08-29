@@ -115,7 +115,16 @@ function App() {
     };
     fetchData();
   }, []);
-
+  const handleProgressClick = (e) => {
+    const progressBar = e.currentTarget;
+    const Position = e.clientX - progressBar.getBoundingClientRect().left;
+    
+    const Percentage = (Position / progressBar.offsetWidth) * 100;
+    const newTime = (Percentage / 100) * audioReference.current.duration;
+    
+    audioReference.current.currentTime = newTime;
+    setProgress(Percentage);
+  };
   return (
     <Store.Provider value={{ background, changeBg, selectSong, selectedSong, songs, displayedSongs ,isPlaying}}>
 
@@ -146,7 +155,7 @@ function App() {
             {
             
             !showMenu && <div className='lg:hidden w-full pl-8 pt-12 pb-40 pr-8  '>
-              <Cover isPlaying={isPlaying} handlePlayPause={handlePlayPause} progress={progress} volume={volume} handleVolumeChange={handleVolumeChange} />
+              <Cover isPlaying={isPlaying} handlePlayPause={handlePlayPause} progress={progress} volume={volume} handleVolumeChange={handleVolumeChange}   handleProgressClick={handleProgressClick}/>
             </div>
             }
 
@@ -160,7 +169,7 @@ function App() {
         
             <div className='hidden lg:block w-full pl-36 pt-24 pb-40 pr-32'>
 
-              <Cover isPlaying={isPlaying} handlePlayPause={handlePlayPause} progress={progress} volume={volume} handleVolumeChange={handleVolumeChange}/>
+              <Cover isPlaying={isPlaying} handlePlayPause={handlePlayPause} progress={progress} volume={volume} handleVolumeChange={handleVolumeChange}   handleProgressClick={handleProgressClick}/>
             </div>
           </div>
         </div>

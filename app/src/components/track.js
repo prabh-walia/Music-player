@@ -1,7 +1,8 @@
-
-
+import { MdGraphicEq } from "react-icons/md"
+import { useContext } from "react";
+import { Store } from "../Context/store";
 export default function Track({song,onClick,selected}){
-
+  const { isPlaying } = useContext(Store);
     return (
        
          <div onClick={onClick}  className={`flex items-center p-4 hover:bg-gray-600/40 rounded-lg  cursor-pointer transition-all duration-300 ease-in-out ${
@@ -21,7 +22,9 @@ export default function Track({song,onClick,selected}){
         <p className="text-gray-400 truncate">{song.artist}</p>
       </div>
 
-    
+      {selected && isPlaying && (
+        <MdGraphicEq className="text-green-400 text-2xl ml-2 animate-pulse" />
+        )}
       <div className="text-gray-400 text-sm ml-4">
         {song.duration}
       </div>

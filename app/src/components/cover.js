@@ -1,9 +1,10 @@
 import { useContext, useState } from "react";
 import { Store } from "../Context/store";
+import React from 'react';
 import { FiVolume2, FiMoreHorizontal } from "react-icons/fi";
 
-export default function Cover({ isPlaying, handlePlayPause, progress, volume, handleVolumeChange }) {
-  console.log("vol-",volume);
+const Cover=  React.memo(({ isPlaying, handlePlayPause, progress, volume, handleVolumeChange }) => {
+
   const { selectedSong, selectSong, displayedSongs, changeBg } = useContext(Store);
   const [showVolumeControl, setShowVolumeControl] = useState(false);
 
@@ -31,7 +32,7 @@ export default function Cover({ isPlaying, handlePlayPause, progress, volume, ha
   };
 
   return (
-    <div className="cover-container flex flex-col w-full h-full">
+    <div className="cover-container flex flex-col w-full h-70">
 
       <div className="mb-4">
         <h2 className="text-2xl font-bold">{selectedSong?.name}</h2>
@@ -40,7 +41,7 @@ export default function Cover({ isPlaying, handlePlayPause, progress, volume, ha
       {selectedSong && (
         <>
 
-          <div className="mt-8 w-full h-[400px] max-h-[400px] overflow-hidden mb-4 rounded-xl">
+          <div className="mt-8 w-full h-[310px] max-h-[310px] overflow-hidden mb-4 rounded-xl">
             <img
               src={`https://cms.samespace.com/assets/${selectedSong?.cover}`}
               alt="logo"
@@ -97,4 +98,5 @@ export default function Cover({ isPlaying, handlePlayPause, progress, volume, ha
       )}
     </div>
   );
-}
+})
+export default Cover;

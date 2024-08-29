@@ -145,7 +145,7 @@ function App() {
 
             {
             
-            !showMenu && <div className='lg:hidden w-full pl-8 pt-12 pb-36 pr-8 '>
+            !showMenu && <div className='lg:hidden w-full pl-8 pt-12 pb-40 pr-8  '>
               <Cover isPlaying={isPlaying} handlePlayPause={handlePlayPause} progress={progress} volume={volume} handleVolumeChange={handleVolumeChange} />
             </div>
             }
@@ -158,7 +158,8 @@ function App() {
             }
 
         
-            <div className='hidden lg:block w-full pl-36 pt-16 pb-36 pr-32'>
+            <div className='hidden lg:block w-full pl-36 pt-24 pb-40 pr-32'>
+
               <Cover isPlaying={isPlaying} handlePlayPause={handlePlayPause} progress={progress} volume={volume} handleVolumeChange={handleVolumeChange}/>
             </div>
           </div>

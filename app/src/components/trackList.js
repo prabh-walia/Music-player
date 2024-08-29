@@ -2,8 +2,9 @@ import { useState, useEffect, useContext } from "react";
 import { FiSearch } from "react-icons/fi";
 import Track from "./track";
 import { Store } from "../Context/store";
+import React from 'react';
 
-export default function TrackList({ load, setDisplayedSongs }) {
+const TrackList= React.memo(({ load, setDisplayedSongs }) =>{
   const { changeBg, selectSong, selectedSong, songs, displayedSongs } = useContext(Store);
 
   const [input, setInput] = useState("");
@@ -91,4 +92,5 @@ export default function TrackList({ load, setDisplayedSongs }) {
       </div>
     </>
   );
-}
+})
+export default TrackList

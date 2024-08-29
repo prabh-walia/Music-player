@@ -9,4 +9,11 @@
   height:84vh;
 
   
+
+}
+@media (max-height: 600px) {
+  .mobile-cover-adjustment {
+
+    padding-bottom: 8px;
+  }
 }
